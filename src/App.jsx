@@ -23,7 +23,7 @@ function range(start, end) {
 function Tickets({selected}) {
   console.log(selected)
   return (
-    <div className='flex max-w-[80vw] overflow-x-scroll'>
+    <div className='flex max-w-[80vw] flex-wrap justify-center'>
       {
       selected.map((item, index) => (
         <div key={index} className='flex justify-between overflow-hidden bg-white rounded shadow-sm m-2 min-w-[20rem] min-h-[10rem] text-blue-500'>
@@ -122,7 +122,7 @@ function App() {
       </header>
 
       <footer>
-        <p>ECX 4.0 edition</p>
+        <p className='font-semibold'>ECX 4.0 edition</p>
       </footer>
     </div>
   );
