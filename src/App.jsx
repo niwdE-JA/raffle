@@ -21,12 +21,26 @@ function range(start, end) {
 }
 
 function Tickets({selected}) {
+  console.log(selected)
   return (
-    <ul>
-      {selected.map((item, index) => (
-        <li key={index}>{item.toString()}</li>
-      ))}
-    </ul>
+    <div className='flex max-w-[80vw] overflow-x-scroll'>
+      {
+      selected.map((item, index) => (
+        <div key={index} className='flex justify-between overflow-hidden bg-white rounded shadow-sm m-2 min-w-[20rem] min-h-[10rem] text-blue-500'>
+          <div className='border-3 border-dashed border-red-400 flex justify-centerw-1/2'>
+            <p className='text-sm m-2 text-[#af2622] font-semibold'>Ticket</p>
+            <p className=' text-6xl m-auto font-thin'>{ item.toString() }</p>
+          </div>
+
+          <div className='bg-[#af2622] flex flex-col justify-center text-white w-1/2'>
+            <h1 className='font-bold'>ECX</h1>
+            <p className='font-thin text-sm'>Raffle Draw</p>
+          </div>
+        </div>
+      ))
+      
+      }
+    </div>
   );
 }
 
@@ -59,31 +73,35 @@ function RaffleDraw() {
     setAvailableTickets(updatedAvailable.filter(item => item != randomNumber))
 
     
-    const updatedSelected = [ ...selected, randomNumber ]
-    setSelected([updatedSelected])
+    // const updatedSelected = [ ...selected, randomNumber ]
+    // setSelected([updatedSelected]) // This method was messing up my styles
+
+    setSelected( prevState => [ ...prevState, randomNumber ] )
 
   };
 
   return (
-    <div>
-      <h1>Raffle Draw</h1>
-      <div>
-        <h2>Available Tickets:</h2>
-        <p>{ availableTickets.length > 0? availableTickets.length: 'No tickets available' }</p>
+    <div className='flex flex-col'>
+      <h1 className='text-6xl font-semibold my-2'>Raffle Draw</h1>
+    
+      <div className='my-4'>
+        <h2 className='text-2xl font-extralight'>Available Tickets</h2>
+        <p className='font-bold'>{ availableTickets.length > 0? availableTickets.length: 'No tickets available' }</p>
         {/* <Tickets selected={availableTickets}/> */}
       </div>
-      <div>
-        <h2>Selected Tickets:</h2>
-        <p>{ selected.length > 0? '': 'No tickets selected' }</p>
+
+      <div className='my-4 mx-auto'>
+        <h2 className='text-2xl font-extralight'>Selected Tickets</h2>
+        <p className='font-bold'>{ selected.length > 0? '': 'No tickets selected' }</p>
         <Tickets selected={selected}/>
       </div>
-
-      
-      <div>
-        <h2>Ticket Range:</h2>
-        <p>{min} to {max}</p>
+     
+      <div className='my-4'>
+        <h2 className='text-2xl font-extralight'>Ticket Range</h2>
+        <p className='font-bold'>{min} - {max}</p>
       </div>
-      <button onClick={handleGenerate}>Generate</button>
+
+      <button className='bg-red-600 active:bg-red-600 my-4 w-fit mx-auto font-thin rounded px-12 py-2 hover:bg-red-800' onClick={handleGenerate}>Generate</button>
     </div>
   );
 }
