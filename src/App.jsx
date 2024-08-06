@@ -110,6 +110,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <div className='flex justify-start bg-transparent w-full h-[8rem] my-2 relative'>
+          <img src="ecx3.png" alt="ecx logo"  className='w-50 m-1 absolute left-4'/>
+        </div>
         <RaffleDraw/>
       </header>
       <footer>
