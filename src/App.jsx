@@ -109,12 +109,18 @@ function RaffleDraw() {
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+
+      <header className="App-header relative overflow-hidden">
+        <div className='w-[7rem] h-[7rem] rounded-full bg-[#ffffff41] absolute left-[0%] top-[35%]'></div>
+        <div className='w-[20rem] h-[20rem] rounded-full bg-[#fab22d70] absolute -bottom-[20%] -right-[5%]'></div>
+        <div className='w-[30rem] h-[30rem] rounded-full bg-[#f2453f3b] absolute -top-[20%] -left-[20%]'></div>
+
         <div className='flex justify-start bg-transparent w-full h-[8rem] my-2 relative'>
           <img src="ecx3.png" alt="ecx logo"  className='w-50 m-1 absolute left-4'/>
         </div>
         <RaffleDraw/>
       </header>
+
       <footer>
         <p>ECX 4.0 edition</p>
       </footer>
