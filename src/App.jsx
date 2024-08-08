@@ -61,7 +61,7 @@ function RaffleDraw() {
   }, [])
 
   const handleGenerate = () => {
-    const BLACKLIST = [2,3,4]
+    const BLACKLIST = []
     let randomIndex, randomNumber;
 
     while(true){
