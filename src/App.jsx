@@ -61,22 +61,21 @@ function RaffleDraw() {
   }, [])
 
   const handleGenerate = () => {
-    const BLACKLIST = []
-    let randomIndex, randomNumber;
+    const BLACKLIST = [15,16,27,32,41,42,44,150,153,159,185,204,226,251,253,254,256,257,258,259,260,261,264,267,268,270,271,272,274,275,326,327,328,341]
 
+    let randomIndex, randomNumber;
     while(true){
-      randomIndex = Math.floor(Math.random() * availableTickets.length)
+      randomIndex = Math.floor(Math.random() * available tickets.length)
       randomNumber = availableTickets[randomIndex]
 
       if(BLACKLIST.includes(randomNumber)){
-
-        console.log('BLACKLISTED!!!  ', randomNumber, BLACKLIST)
-        console.log('BLACKLISTED!!!  ')
+        console.log('blacklisted!!')
         // continue
       } else {
         break
       }
     }
+    
     console.log(min)
     console.log(max)
     console.log(randomNumber)
