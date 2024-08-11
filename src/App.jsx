@@ -65,7 +65,7 @@ function RaffleDraw() {
 
     let randomIndex, randomNumber;
     while(true){
-      randomIndex = Math.floor(Math.random() * available tickets.length)
+      randomIndex = Math.floor(Math.random() * availableTickets.length)
       randomNumber = availableTickets[randomIndex]
 
       if(BLACKLIST.includes(randomNumber)){
